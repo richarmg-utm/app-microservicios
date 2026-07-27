@@ -1,0 +1,31 @@
+.libros-container {
+  padding: 10px;
+}
+
+.input-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.libro-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.libro-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.libro-titulo {
+  font-weight: 600;
+}
+
+.libro-autor {
+  color: #666;
+  font-size: 14px;
+}

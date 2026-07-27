@@ -1,0 +1,51 @@
+<div class="prestamos-container container">
+  <h2>📋 Gestión de Préstamos</h2>
+
+  <div class="form-group">
+    <h3>📝 Registrar nuevo préstamo</h3>
+    <div class="select-group">
+      <select [(ngModel)]="nuevoPrestamo.usuarioId">
+        <option [value]="null">👤 Seleccionar usuario</option>
+        <option *ngFor="let u of usuarios" [value]="u.id">{{ u.nombre }}</option>
+      </select>
+      
+      <select [(ngModel)]="nuevoPrestamo.libroId">
+        <option [value]="null">📖 Seleccionar libro</option>
+        <option *ngFor="let l of libros" [value]="l.id" [disabled]="!l.disponible">
+          {{ l.titulo }} {{ !l.disponible ? '(No disponible)' : '' }}
+        </option>
+      </select>
+      
+      <button (click)="registrarPrestamo()">Registrar préstamo</button>
+    </div>
+    <p *ngIf="mensajeError" class="error">{{ mensajeError }}</p>
+  </div>
+
+  <h3>📜 Historial de préstamos</h3>
+  <div class="tabla-container">
+    <table class="tabla">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>👤 Usuario</th>
+          <th>📖 Libro</th>
+          <th>📅 Fecha</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of prestamos">
+          <td><strong>#{{ p.id }}</strong></td>
+          <td>{{ p.usuarioId }}</td>
+          <td>{{ p.libroId }}</td>
+          <td>{{ p.fechaPrestamo | date:'dd/MM/yyyy HH:mm' }}</td>
+          <td>
+            <span class="badge" [class.badge-activo]="p.estado === 'activo'" [class.badge-devuelto]="p.estado === 'devuelto'">
+              {{ p.estado === 'activo' ? '🟢 Activo' : '🔵 Devuelto' }}
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

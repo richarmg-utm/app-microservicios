@@ -1,0 +1,29 @@
+<div class="libros-container container">
+  <h2>📚 Gestión de Libros</h2>
+
+  <div class="form-group">
+    <h3>📝 Registrar nuevo libro</h3>
+    <div class="input-group">
+      <input [(ngModel)]="nuevoLibro.titulo" placeholder="Título" />
+      <input [(ngModel)]="nuevoLibro.autor" placeholder="Autor" />
+      <label>
+        <input type="checkbox" [(ngModel)]="nuevoLibro.disponible" /> Disponible
+      </label>
+      <button (click)="registrar()">Registrar</button>
+    </div>
+  </div>
+
+  <h3>📋 Lista de libros</h3>
+  <ul class="lista">
+    <li *ngFor="let l of libros" class="libro-item">
+      <div class="libro-info">
+        <span class="libro-titulo">{{ l.titulo }}</span>
+        <span class="libro-autor">✍️ {{ l.autor }}</span>
+        <span class="badge" [class.badge-disponible]="l.disponible" [class.badge-no-disponible]="!l.disponible">
+          {{ l.disponible ? '✅ Disponible' : '❌ No disponible' }}
+        </span>
+      </div>
+      <span class="usuario-id">ID: {{ l.id }}</span>
+    </li>
+  </ul>
+</div>
