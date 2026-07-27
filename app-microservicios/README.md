@@ -10,8 +10,8 @@ contraseña: admin12345
 puerto: 5432
 # Nombrar las bases de datos tal cual para evitar editar codigo
 Base de datos 1: libros_db
-Base de datos 1: prestamos_db
-Base de datos 1: usuarios_db
+Base de datos 2: prestamos_db
+Base de datos 3: usuarios_db
 
 
 # En cada carpeta, ejecuta npm install (hacer todo con cmd)
